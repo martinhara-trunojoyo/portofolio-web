@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Harahap</title>
+  <!-- Include the Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+    /* Tambahkan style CSS tambahan untuk memberi warna latar saat hover pada tabel */
+    #nilaiTable:hover {
+      background-color: #f7fafc;
+    }
+    /* Style untuk popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang dengan opasitas */
+      z-index: 9999;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  
+  </style>
+</head>
+<body class="bg-gray-100 relative">
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 class="text-2xl font-semibold mb-4">Selamat Datang!</h2>
+        <p>Website ini masih dalam pengembangan developer dalam 2 bulan kedepan</p>
+        </div>
+    </div>
+  <!-- Navbar -->
+  <nav class="bg-gray-800 p-4  sticky top-0 z-10">
+    <div class="container mx-auto">
+      <div class="flex justify-between items-center">
+        <div class="text-white font-bold text-xl">Martin Harahap | Jr Dev</div>
+        <ul class="flex space-x-4">
+          <li><a href="index1.html" class="text-white hover:text-gray-200">Home</a></li>
+          <li><a href="#akademik" class="text-white hover:text-gray-200">Akademik</a></li>
+          <li><a href="#sertifikasi" class="text-white hover:text-gray-200">Sertifikasi</a></li>
+          <li><a href="#contact" class="text-white hover:text-gray-200">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20 px-4 relative">
+    <div class="container mx-auto flex justify-center items-center flex-col">
+      <img src="avatar.jpg" alt="Your Photo" class="rounded-lg w-80 h-70  object-center mb-4 center-image">
+      <h1 class="text-4xl font-bold mb-4 ">Hai Internet !</h1>
+      <p class="text-lg text-justify">Saya adalah mahasiswa semester 4 jurusan Sistem Informasi di Universitas Trunojoyo. saya memiliki keahlian dan fokus yang kuat
+        dalam pengembangan website, baik dari segi front-end maupun back-end. Selain itu, Saya juga memiliki pemahaman mendalam dalam
+        bidang ilmu data serta keamanan informasi dan jaringan. Dengan kombinasi pengetahuan ini, Saya adalah seorang profesional muda
+        yang berkomitmen untuk menghadirkan solusi inovatif dan aman dalam dunia teknologi informasi.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+
+    <section id="akademik" class="py-16 px-4">
+        <div class="container mx-auto">
+          <h2 class="text-4xl font-bold mb-8 text-center">Akademik <br>
+           IPK : 3.78/4.00</h2>
+           <div class="container mx-auto">
+            <div class="max-w-md mx-auto">
+              <label for="semester" class="block text-gray-700 text-sm font-bold mb-2">Pilih Semester:</label>
+              <div class="relative">
+                <select id="semester" name="semester" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                  <option value="1">Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3">Semester 3</option>
+                  <!-- Tambahkan pilihan semester lainnya sesuai dengan kebutuhan -->
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12L6 8h8z"/></svg>
+                </div>
+              </div>
+            </div>
+        
+             <!-- Tabel untuk menampilkan data nilai -->
+    <div class="mt-8" id="nilaiTable" style="display:none;">
+        <table class="table-auto w-full border-collapse border border-gray-400">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 border border-gray-400">Mata Kuliah</th>
+              <th class="px-4 py-2 border border-gray-400">Nilai</th>
+              <th class="px-4 py-2 border border-gray-400">SKS</th>
+            </tr>
+          </thead>
+          <tbody id="nilaiBody">
+            <!-- Isi tabel akan dimasukkan di sini menggunakan JavaScript -->
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Element untuk menampilkan total IPS dan IPK -->
+      
+        <p class="text-lg font-semibold">Total IPS: <span id="ips">-</span></p>
+        <p class="text-lg font-semibold">IPK: <span id="ipk">-</span></p>
+      </div></div> </section>
+      <div class="mt-4" id="sertifikasi"></div>
+      <!-- Sertifikasi -->
+      <section class="bg-gray-900 text-black py-20 px-4 relative">
+        <h2 class="text-4xl font-bold mb-8 text-center text-white">Sertifikasi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- sertifikasi Cards -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-xl font-bold mb-2">PENGANTAR TEKNOLOGI INFORMASI & KOMPUTER</h3>
+          <p>Universitas Trunojoyo | Desember 2022</p>
+          <!-- Tombol dengan latar belakang abu-abu -->
+            <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                Lihat Sertifikat
+            </button>
+        </div>
+        <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">IT ESSENTIALS</h3> <br>
+            <p>Cisco Networking Academy | Desember 2022</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">ENGLISH MENTORING PROGRAM</h3> <br>
+            <p>UPT Bahasa Universitas Trunojoyo| Desember 2023</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">BELAJAR DASAR PEMROGRAMAN WEB</h3> 
+            <p>Dicoding Indonesia| Desember 2023</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">SOFTWARE ENGINEERING : CSS INTRODUCTION</h3>
+            <p>MySkill| januari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">INTRO TO DATA ANALYSIS</h3><br>
+            <p>MySkill| januari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">MEMULAI PEMROGRAMAN DENGAN PYTHON</h3>
+            <p>Dicoding Indonesia| januari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">INTRODUCTION TO CYBERSECURITY</h3> <br>
+            <p>Cisco Networking Academy | Januari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">BELAJAR VISUALISASI DATA</h3><BR>
+            <p>Dicoding Indonesia| januari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">PYTHON FUNDAMENTAL FOR DATA SCINCE</h3>
+            <p>DQLab| Februari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">FUNDAMENTAL SQL USING SELECT STATEMENT</h3>
+            <p>DQLab| Februari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">R FUNDAMENTAL FOR DATA SCINCE</h3> <br>
+            <p>DQLab| Februari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">DATA SCIENCE FUNDAMENTALS</h3>
+            <p>DQLab| Februari 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Lihat Sertifikat
+              </button>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-bold mb-2">Belajar Machine Learning Untuk Pemula</h3>
+            <p>Dicoding Indonesia| .... 2024</p>
+            <!-- Tombol dengan latar belakang abu-abu -->
+              <button class="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-3 rounded">
+                  Sertifikat belum tersedia
+              </button>
+          </div>
+      </div>
+      </section>
+      <!-- Kontak -->
+      <section id="contact" class="py-16 px-4 ">
+        <div class="container mx-auto">
+          <h2 class="text-4xl font-bold text-center mb-8">Kontak</h2>
+          <p class="text-lg mb-4 text-center">Jika Anda memiliki pertanyaan atau ingin berhubungan dengan saya, jangan ragu untuk menghubungi saya melalui salah satu saluran di bawah ini:</p>
+          <!-- Card untuk setiap media sosial -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card WhatsApp -->
+        <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+          <i class="fab fa-whatsapp text-green-500 text-2xl mr-4"></i>
+          <div>
+            <h3 class="text-lg font-semibold">WhatsApp</h3>
+            <p class="text-gray-600">(+62) 896-0993-1734</p>
+          </div>
+        </div>
+  
+        <!-- Card Email -->
+        <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+          <i class="fas fa-envelope text-blue-500 text-2xl mr-4"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Email</h3>
+            <p class="text-gray-600">imanuemrtn@gmail.com</p>
+          </div>
+        </div>
+  
+        <!-- Card Telepon -->
+        <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+          <i class="fas fa-phone text-purple-500 text-2xl mr-4"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Telepon</h3>
+            <p class="text-gray-600">(+62) 899-1537-985</p>
+          </div>
+        </div>
+  
+        <!-- Card Alamat -->
+        <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+          <i class="fas fa-map-marker-alt text-red-500 text-2xl mr-4"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Alamat</h3>
+            <p class="text-gray-600">Surabaya,Jawa Timur</p>
+          </div>
+        </div>
+        
+           <!-- Card LinkedIn -->
+      <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+        <i class="fab fa-linkedin text-blue-500 text-2xl mr-4"></i>
+        <div>
+          <h3 class="text-lg font-semibold">LinkedIn</h3>
+          <p class="text-gray-600">linkedin.com/martin-harahap</p>
+        </div>
+      </div>
+
+      <!-- Card GitHub -->
+      <div class="bg-white rounded-lg shadow-md p-6 flex items-center">
+        <i class="fab fa-github text-gray-800 text-2xl mr-4"></i>
+        <div>
+          <h3 class="text-lg font-semibold">GitHub</h3>
+          <p class="text-gray-600">github.com/martinhara22</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Martin Harahap. Hak Cipta Dilindungi Undang-Undang.</p>
+    </div>
+  </footer>
+    <script>
+      // Data nilai contoh
+      const dataNilai = {
+        1: [
+          { mataKuliah: "PENGANTAR TEKNOLOGI INFORMASI DAN KOMPUTER", nilai: "B+", sks: 3 },
+          { mataKuliah: "ALGORITMA PEMROGRAMAN", nilai: "B+", sks: 4 },
+          { mataKuliah: "STATISTIK DAN PROBABILITAS", nilai: "B+", sks: 3 },
+          { mataKuliah: "LOGIKA ENGINEERING", nilai: "C+", sks: 2 },
+          { mataKuliah: "MANAJEMEN & ORGANISASI", nilai: "A", sks: 3 },
+          { mataKuliah: "KETERAMPILAN INTERPERSONAL", nilai: "A", sks: 3 },
+          { mataKuliah: "PENDIDIKAN AGAMA KRISTEN", nilai: "A", sks: 2 },
+          { mataKuliah: "PANCASILA", nilai: "B", sks: 2 },
+          // Tambahkan data nilai semester 1 lainnya
+        ],
+        2: [
+          { mataKuliah: "ANALISA PROSES BISNIS", nilai: "B+", sks: 2 },
+          { mataKuliah: "PEMROGRAMAN BERBASIS WEB", nilai: "A", sks: 4 },
+          { mataKuliah: "PENGANTAR BASIS DATA", nilai: "A", sks: 3 },
+          { mataKuliah: "DESAIN MANAJEMEN JARINGAN", nilai: "B+", sks: 3 },
+          { mataKuliah: "PEMROGRAMAN BERBASIS OBJEK", nilai: "A", sks: 4 },
+          { mataKuliah: "KEWARGANEGARAAN", nilai: "A", sks: 2 },
+          { mataKuliah: "BAHASA INGGRIS", nilai: "A", sks: 2 },
+          { mataKuliah: "E-BUSSINES DAN E-COMMERCE", nilai: "A", sks: 2 },
+
+          // Tambahkan data nilai semester 2 lainnya
+        ],
+        3: [
+          { mataKuliah: "REKAYASA PERANGKAT LUNAK", nilai: "A", sks: 3 },
+          { mataKuliah: "PEMROGRAMAN VISUAL", nilai: "A", sks: 4 },
+          { mataKuliah: "ANALISA DAN DESAIN SISTEM INFORMASI	", nilai: "B+", sks: 3 },
+          { mataKuliah: "ARSITEKTUR SI/TI PERUSAHAAN", nilai: "B+", sks: 3 },
+          { mataKuliah: "BAHASA INDONESIA", nilai: "A", sks: 2 },
+          { mataKuliah: "INTERAKSI MANUSIA DAN KOMPUTER", nilai: "A", sks: 3},
+          { mataKuliah: "KEAMANAN INFORMASI", nilai: "A", sks: 3 },
+          { mataKuliah: "RISET OPERASI", nilai: "A", sks: 3 },
+          // Tambahkan data nilai semester 3 lainnya
+        ]
+        // Tambahkan data nilai untuk semester lainnya sesuai dengan kebutuhan
+      };
+  
+      // Fungsi untuk menampilkan tabel data nilai dan menghitung IPS dan IPK
+      function tampilkanDataNilai() {
+        const semester = document.getElementById("semester").value;
+        const nilaiBody = document.getElementById("nilaiBody");
+        const ipsSpan = document.getElementById("ips");
+        const ipkSpan = document.getElementById("ipk");
+  
+        nilaiBody.innerHTML = ""; // Menghapus isi tabel sebelum menambahkan data baru
+  
+        if (dataNilai[semester]) {
+          let totalNilai = 0;
+          let totalSKS = 0;
+  
+          dataNilai[semester].forEach(data => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td class="px-4 py-2 border border-gray-400">${data.mataKuliah}</td>
+              <td class="px-4 py-2 border border-gray-400">${data.nilai}</td>
+              <td class="px-4 py-2 border border-gray-400">${data.sks}</td>
+            `;
+            nilaiBody.appendChild(row);
+  
+            // Hitung nilai total untuk IPS dan IPK
+            totalSKS += data.sks;
+            totalNilai += nilaiKeAngka(data.nilai) * data.sks;
+          });
+  
+          // Hitung IPS
+          const ips = totalSKS !== 0 ? (totalNilai / totalSKS).toFixed(2) : 0;
+          ipsSpan.textContent = ips;
+  
+          // Hitung IPK (asumsikan hanya ada satu semester)
+          const ipkfix = totalSKS !== 0 ? (totalNilai / totalSKS).toFixed(2) : 0;
+          ipsSpan.textContent = ips;
+          ipkSpan.textContent = ips;
+  
+          document.getElementById("nilaiTable").style.display = "block"; // Menampilkan tabel
+        } else {
+          document.getElementById("nilaiTable").style.display = "none"; // Menyembunyikan tabel jika tidak ada data
+        }
+      }
+  
+      // Fungsi untuk mengonversi nilai huruf ke angka
+      function nilaiKeAngka(nilai) {
+        switch (nilai) {
+          case "A": return 4.00;
+          case "B+": return 3.50;
+          case "B": return 3.00;
+          case "C+": return 2.50;
+          case "C": return 2.00;
+          case "D+": return 1.50;
+          case "D": return 1.00;
+          default: return 0.00;
+        }
+      }
+  
+      // Panggil fungsi tampilkanDataNilai() setiap kali nilai dropdown semester berubah
+      document.getElementById("semester").addEventListener("change", tampilkanDataNilai);
+  
+      // Panggil fungsi tampilkanDataNilai() saat halaman dimuat pertama kali
+      tampilkanDataNilai();
+      document.addEventListener("DOMContentLoaded", function() {
+      // Seleksi popup
+      const popup = document.getElementById("popup");
+      // Tampilkan popup
+      popup.style.display = "block";
+      
+      // Seleksi tombol close
+      const closeBtn = document.querySelector(".close-btn");
+      // Tambahkan event listener untuk menutup popup saat tombol close diklik
+      closeBtn.addEventListener("click", function() {
+        popup.style.display = "none";
+      });
+    });
+    </script>
+
+
+  </body>
+  </html>

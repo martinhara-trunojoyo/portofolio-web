@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Harahap</title>
+  <!-- Include the Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+    /* Tambahkan style CSS tambahan untuk memberi warna latar saat hover pada tabel */
+    #nilaiTable:hover {
+      background-color: #f7fafc;
+    }
+    /* Style untuk popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang dengan opasitas */
+      z-index: 9999;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    
+    </style>
+</head>
+<body class="bg-gray-100 relative flex flex-col min-h-screen">
+    <!-- Popup -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <h2 class="text-2xl font-semibold mb-4">Selamat Datang!</h2>
+          <p>Website ini masih dalam pengembangan developer dalam 2 bulan kedepan</p>
+      </div>
+  </div>
+ <!-- Navbar -->
+ <nav class="bg-gray-800 p-4 sticky top-0 z-10">
+  <div class="container mx-auto">
+      <div class="flex justify-between items-center relative">
+          <div class="text-white font-bold text-xl">Martin Harahap | Jr Dev</div>
+          <!-- Tombol dropdown untuk menu pada perangkat mobile -->
+          <button id="menu-toggle" class="block lg:hidden focus:outline-none text-white hover:text-gray-200">
+              <i class="fas fa-bars fa-2x"></i>
+          </button>
+           <!-- Menu dropdown untuk perangkat mobile -->
+           <ul id="navbar-dropdown"
+           class="hidden lg:hidden absolute bg-gray-800 w-full mt-200 py-2 rounded-md text-center">
+           <li><a href="index.html" class="block text-white hover:text-gray-200">Home</a></li>
+           
+          </ul>
+          <!-- Pilihan menu untuk perangkat desktop -->
+          <ul id="navbar-menu" class="hidden lg:flex space-x-4">
+              <li><a href="index.html" class="text-white hover:text-gray-200">Home</a></li>
+             
+          </ul>
+      </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20 px-4 relative flex-grow">
+    <div class="container mx-auto flex justify-center items-center flex-col">
+      <img src="IMG_20220903_100243.jpg" alt="Your Photo" class="rounded-lg w-80 h-70  object-center mb-4 center-image">
+      <h1 class="text-4xl font-bold mb-4 ">Halo Saya Martin!</h1>
+      <p class="text-lg text-justify">Sekumpulan cerita hidup saya dimuat disini</p>
+    </div>
+    <!-- Tombol CV -->
+    <div class="text-center mb-2">
+      <!-- Tombol CV -->
+     
+  
+      <!-- Spasi antar tombol -->
+      <div class="my-4"></div>
+  
+      <!-- Tombol More About Martin -->
+      <a href="moreabout.html">
+      <button class=" bg-yellow-400 hover:bg-yellow-700 mt-4 text-white font-bold py-2 px-4  rounded w-200%">
+          Mulai
+           <!-- Kode iframe dengan autoplay diaktifkan -->
+            <iframe width="0" height="0" scrolling="no" frameborder="no" allow="" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/643268406&color=%23968e7e&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/idris-komara-646834238" title="Musik kita" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+      </button>
+      
+    </a>
+  </div>
+ 
+
+  </section>
+ <!-- lahir -->
+ <section class="bg-gray-100 py-10">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold mb-10 text-center">Cerita Kelahiran Saya</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Gambar atau ilustrasi tentang kelahiran Anda -->
+            <div class="flex justify-center items-center">
+                <img src="https://media.istockphoto.com/id/653198994/id/vektor/bayi-kartun-lucu.jpg?s=170667a&w=0&k=20&c=QcVPzIowxyv0KM7KOPAM9sDIlD6EKYAwVK4St4_1Yx0=" alt="Gambar Kelahiran" class="max-w-full h-auto rounded-lg">
+            </div>
+            <!-- Cerita tentang kelahiran Anda -->
+            <div>
+                <br><br><br><br><br>
+                <p class="text-lg mb-4">Pada hari senin, 22 Maret 2004 saya lahir di salah satu bidan di kecamatan rawalumbu kota bekasi. Saya lahir di jam 16:30 semua terjadi begitu saja banyak konflik yang terjadi saat saya lahir salah satunya karna nama saya, entah apa yang terjadi saya juga kurang tau dan saya tidak terlalu memikirkan itu  </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- pendidikan -->
+<!-- Section tentang riwayat pendidikan Anda -->
+<section class="bg-gray-200 py-10">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold mb-8 text-center">Riwayat Pendidikan</h2>
+        <!-- Tabel riwayat pendidikan -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tingkat</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Sekolah</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo Sekolah</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <!-- Baris 1: SD -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">SD</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Sekolah Dasar Negeri Mustikasari 1</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><img src="https://yt3.googleusercontent.com/nyHmGAMcA83qPN-Voes42SA5entdSQAa3dMXKp0K1hFRQcSf-_OwKtjfx75XU1mUY3QK2UMK=s900-c-k-c0x00ffffff-no-rj" alt="Logo SD ABC" class="w-40 h-40"></td>
+                    </tr>
+                    <!-- Baris 2: SMP -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">SMP</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Sekolah Menengah Pertama Negeri 16 Bekasi</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewh23xwKCgjW1sPUeHLQPU7Lb6DrGyCci7-YouOUEVDwP8ZGeIiov8j3m_putVsjU8cA&usqp=CAU" alt="Logo SMP XYZ" class="w-40 h-40"></td>
+                    </tr>
+                    <!-- Baris 3: SMA -->
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">SMA</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Sekolah Menengah Atas Negeri 19 Bekasi</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><img src="https://www.sman19kotabekasi.sch.id/upload/imagecache/46187746logo19-600x600.jpg" alt="Logo SMA DEF" class="w-40 h-40"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Martin Harahap. Hak Cipta Dilindungi Undang-Undang.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
